@@ -1,3 +1,5 @@
+/* importing a reset which helps us start from an easy base */
+@import url("reset.css");
 /* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
   HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
@@ -10,13 +12,11 @@
  */
 :root {
   /**
-   * Custom variables allow us to set repeating values in one place. In this
-   * case, we're defining the maximum width of our pages.
+   * Custom variables allow us to set repeating values in one place. 
    * (https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
    *
    * Also, check out the `min()` property: it picks whatever is the smallest of
-   * the two given properties as the width! For more details on it and similar
-   * properties, check out Kevin Powell's video: https://youtu.be/U9VF-4euyRo
+   * the two given properties as the width! This helps us style easier across devices
    */
   /* Set the width of the page content (archive, characters) */
   --pg-width: min(1000px, 98%);
@@ -177,7 +177,6 @@ header #nav {
 
 .comicNav img {
   width: var(--comic-nav-img-width);
-  padding-right: 30px;
 }
 
 /* center the comic contents */
