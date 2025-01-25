@@ -10,9 +10,6 @@
 
 writeNav(true); //show navigation for comic pages. to toggle either images or text for nav, set this to true or false.
 
-//debug
-console.log(pg)
-
 writePageTitle(".writePageTitle", true, " - "); //write title of page. true/false
 
 writePageClickable(".writePageClickable",true); //show the current page. to toggle whether pages can be clicked to move to the next one, set this to true or false.
@@ -61,10 +58,7 @@ function writePage() {
   let page = ``;
 
   if (pgData.length < pg) { //if the array is blank or not long enough to have an entry for this page
-    //debug
-    console.log("page code to insert - " + page);
-    console.log("alt text to print - " + altText);
-    //
+
     page = `<img alt="` + altText + `" title="` + altText + `" src="` + path + `" />`;
     return page;
   } else if (pgData.length >= pg) { //if the array is not blank, and if its at least long enough to have an entry for the current page
@@ -81,23 +75,10 @@ function writePage() {
     } else {
       page = `<img alt="` + altText + `" title="` + altText + `" src="` + path + `" />`;
     }
-    //debug
-    console.log("page code to insert - " + page);
-    console.log("alt text to print - " + altText);
-    //
+
     return page;
   }
 }
-
-//debug
-console.log("array blank/not long enough? " + (pgData.length < pg));
-console.log("array length - " + pgData.length);
-console.log("current page - " + pg);
-console.log("number of page segments - " + pgData[pg-1].imageFiles);
-console.log("alt text - " + `"` + pgData[pg - 1].altText + `"`);
-
-console.log("nav text - " + navText);
-console.log("nav image file extension - " + navExt);
 
 function imgOrText(setImg,navTextSet) { //function that writes the indicated nav button as either an image or text
 

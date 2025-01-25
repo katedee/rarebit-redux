@@ -184,6 +184,14 @@ header #nav {
   text-align: center;
 }
 
+/* 
+*set the page title to be the same width as the comic 
+* if you'd rather have the title span the whole page, set width to 100%
+*/
+.writePageTitle {
+  width: var(--comic-width);
+}
+
 /* style comic page image */
 .comicPage img {
   width: var(--comic-width);
@@ -280,3 +288,4 @@ html,
 body {
   margin: 0;
 }
+

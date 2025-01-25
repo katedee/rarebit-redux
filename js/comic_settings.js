@@ -10,10 +10,6 @@ let pg = Number(findGetParameter("pg")); //make "pg" mean the current page numbe
 //VARIABLES FOR TWEAKING
 ////////////////////////
 
-//REALLY IMPORTANT ONES
-const maxpg = 14; //the current number of pages your comic has in total. this DOESNT necessarily mean number of IMAGE FILES as it doesn't count pages split into multiple files. 
-//YOU MUST UPDATE THIS NUMBER EVERY TIME YOU ADD A NEW PAGE or else it wont display the most recent page
-
 // COMIC PAGE SETTINGS
 const folder = "img/comics"; //directory of the folder where you keep all the comics
 const image = "pg"; //what you'll name all your comic pages
@@ -30,8 +26,6 @@ const navText = ["First","Previous","Next","Last"]; //alt text for your nav imag
 const navFolder = "img/comicnav"; //directory where nav images are stored
 const navExt = "png" //file extension of nav images
 const navScrollTo = "#showComic"; //id of the div you want the page to automatically scroll to when you click to the next comic. will turn off if you delete text between quotation marks
-
-if (pg == 0) {pg = maxpg;} //display MOST RECENT COMIC when the webpage is loaded. if you want to instead have the FIRST COMIC displayed first, change maxpg to 1.
 
 //pgData holds all the parameters for each of your pages. copypaste this and fill out accordingly:
 /* 
@@ -111,12 +105,18 @@ const pgData = [
     },
 ];
 
-//below is a function you dont rly need to mess with but if you're more experienced with js you can
+//Unlike in rarebit you do not need to update maxpg
+const maxpg = pgData.length; 
 
+//display MOST RECENT COMIC when the webpage is loaded. if you want to instead have the FIRST COMIC displayed first, change maxpg below to 1.
+if (pg == 0) {pg = maxpg;}//change this maxpg if you want your comic to start elsewhere, not const maxpg 
+
+
+//below is a function you dont rly need to mess with but if you're more experienced with js you can
 function findGetParameter(parameterName) { //function used to write a parameter to append to the url, to give each comic page its own unique url
     let result = null,
     tmp = []; 
-    let items = location.search.substr(1).split("&");
+    let items = location.search.substring(1).split("&");
     for (let index = 0; index < items.length; index++) {
         tmp = items[index].split("=");
         if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
