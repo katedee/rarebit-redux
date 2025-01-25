@@ -1,0 +1,283 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+  HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+/**
+ * :root targets the root element of the document; in practice, it targets the
+ * `<html>` tag, just with a higher specificity than calling it directly. It's
+ * most commonly used for defining custom variables, which you can see below!
+ * (https://developer.mozilla.org/en-US/docs/Web/CSS/:root)
+ */
+:root {
+  /**
+   * Custom variables allow us to set repeating values in one place. In this
+   * case, we're defining the maximum width of our pages.
+   * (https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+   *
+   * Also, check out the `min()` property: it picks whatever is the smallest of
+   * the two given properties as the width! For more details on it and similar
+   * properties, check out Kevin Powell's video: https://youtu.be/U9VF-4euyRo
+   */
+  /* Set the width of the page content (archive, characters) */
+  --pg-width: min(1000px, 98%);
+
+  /* Set the width of comic page and author notes */
+  --comic-width: min(900px, 98%);
+
+  /* Set the width of the header image */
+  --header-img-width: min(500px, 98%);
+
+  /* Set the width of the comic navigation buttons */
+  --comic-nav-img-width: min(80px);
+
+  /**
+  * The following is variables that set colours for things on the site.
+  * If you just want to swap some colours, likely this is all you have to touch.
+  **/
+  /* universal background color */
+  --bg-color: #da5437;
+
+  /* background color of content-- archive, author notes, etc */
+  --content-color: #fff;
+
+  /* the colour of links */
+  --link-color: #222;
+
+  /* link colours when hovered over */
+  --link-color-hover: #da5437;
+
+  /* text color */
+  --text-color: #222;
+
+  /* border color */
+  --border-color: #000;
+}
+
+
+body,
+div,
+main,
+section,
+article {
+  box-sizing: border-box;
+}
+
+/* universal background color */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* header image */
+header img {
+  width: var(--header-img-width);
+}
+
+/* clearfix hack to prevent image overflow. check out the W3Schools page on it. */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*FONTS*/
+
+/* header font */
+#showComic,
+header,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Cherry Cream Soda', cursive;
+}
+
+/* body font */
+.subPage p,
+footer,
+#authorNotes,
+.archiveTable {
+  font-family: 'Open Sans', sans-serif;
+  font-size: large;
+}
+
+/* STYLING FOR SUBPAGES (about, characters, etc) */
+
+/*general*/
+
+.subPage {
+  width: var(--pg-width);
+  background-color: var(--content-color);
+  outline: 3px solid var(--border-color);
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 0px 12px 12px;
+}
+
+.subPage:not(.archivePage) {
+  text-align: center;
+}
+
+/* for pictures displayed to the left */
+.leftPic {
+  clear: left;
+  float: right;
+  margin-left: 20px;
+}
+
+/* specific to Characters */
+.character {
+  /**
+   * For those unfamiliar with grid, check out this CSS Tricks article:
+   * https://css-tricks.com/snippets/css/complete-guide-grid/
+   *
+   * This is also being applied to the archive layout
+   */
+  display: grid;
+  grid-template-columns: 25% 60%;
+  gap: 1rem;
+  margin: 1rem auto 2rem;
+  text-align: left;
+}
+
+/* link colors */
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+/* HEADER */
+header {
+  text-align: center;
+}
+
+header #nav {
+  background-color: var(--content-color);
+  outline: 3px solid var(--border-color);
+  font-size: 20px;
+  width: 98%;
+  margin: auto;
+}
+
+/* HOMEPAGE */
+
+/* style nav button images */
+.comicNav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+  gap: 10px;
+}
+
+.comicNav img {
+  width: var(--comic-nav-img-width);
+  padding-right: 30px;
+}
+
+/* center the comic contents */
+#showComic {
+  text-align: center;
+}
+
+/* style comic page image */
+.comicPage img {
+  width: var(--comic-width);
+}
+
+/* style author notes */
+#authorNotes {
+  background-color: var(--content-color);
+  outline: 3px solid var(--border-color);
+  margin: auto;
+  padding: 3px;
+  padding-top: 0px;
+  width: 900px;
+  max-width: 98%;
+}
+
+/* ARCHIVE PAGE */
+
+/* style table in which archive is displayed */
+.archiveTable {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+/* style archive table cells */
+.archiveTable td {
+  padding: 3px;
+  vertical-align: center;
+
+}
+
+/* style table cell in which page title is displayed */
+.archiveCellTitle:not(.leftAlignTableText) {
+  max-width: 300px;
+  text-align: center;
+}
+
+.archiveCellDate {
+  text-align: right;
+  min-width: 120px;
+}
+
+.archiveCellNum {
+  text-align: center;
+  min-width: 30px;
+}
+
+/* style the thumbnails on the archive page */
+.archiveCellThumb {
+  width: 500px;
+  max-width: 60px;
+}
+
+.archiveCellThumb img {
+  max-width: 100%;
+}
+
+/* for left aligning the text in a table cell */
+.leftAlignTableText td {
+  text-align: left;
+}
+
+/* highlight a table row and make pointer into hand when moused over */
+.archiveRow:hover {
+  background-color: var(--link-color-hover);
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  color: #421a1a;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  float: left;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer p {
+  margin: auto;
+}
+
+footer a {
+  color: #c8d32b
+}
+
+footer a:hover {
+  color: #868d26
+}
+
+/* take away margins from the edges of the screen */
+html,
+body {
+  margin: 0;
+}
