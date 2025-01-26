@@ -97,7 +97,7 @@ h5 {
 .subPage p,
 footer,
 #authorNotes,
-.archiveTable {
+.chapter {
   font-family: 'Open Sans', sans-serif;
   font-size: large;
 }
@@ -209,53 +209,40 @@ header #nav {
 }
 
 /* ARCHIVE PAGE */
-
-/* style table in which archive is displayed */
-.archiveTable {
-  width: 90%;
-  border-collapse: collapse;
+.chapter a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
 }
 
-/* style archive table cells */
-.archiveTable td {
-  padding: 3px;
-  vertical-align: center;
-
+.chapterNum {
+  font-weight: 700;
 }
 
-/* style table cell in which page title is displayed */
-.archiveCellTitle:not(.leftAlignTableText) {
-  max-width: 300px;
-  text-align: center;
+.chapter a:hover {
+  color: var(--text-color);
 }
 
-.archiveCellDate {
+.chapterThumb img {
+  max-width: 70px;
+}
+
+.chapterTitle {
+  font-size: 0.rem;
+  max-width: 60%;
+}
+
+.chapterDate {
+  width: 25%;
   text-align: right;
-  min-width: 120px;
-}
-
-.archiveCellNum {
-  text-align: center;
-  min-width: 30px;
-}
-
-/* style the thumbnails on the archive page */
-.archiveCellThumb {
-  width: 500px;
-  max-width: 60px;
-}
-
-.archiveCellThumb img {
-  max-width: 100%;
-}
-
-/* for left aligning the text in a table cell */
-.leftAlignTableText td {
-  text-align: left;
+  margin-left: auto;
+  color: #474747;
 }
 
 /* highlight a table row and make pointer into hand when moused over */
-.archiveRow:hover {
+.chapter:hover {
   background-color: var(--link-color-hover);
   cursor: pointer;
 }

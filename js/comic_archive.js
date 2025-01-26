@@ -62,23 +62,23 @@ function writeArchive(divClass, min, max, reverseOrder, useThumbs,useNums) {
         let linkToComic = `${indexPage}?pg=${i + navScrollTo}`;
 
         const archiveListItemHtml = `
-            <div class="archiveRow">
+            <div class="chapter">
                 <a href="${linkToComic}">
                     ${useThumbs ? `
-                        <div class="archiveCellThumb">
+                        <div class="chapterThumb">
                             <img alt="${pgTitle}" title="${pgTitle}" src="${pgThumb}" onerror="javascript:this.src='${pgThumbDefault}'"/>
                         </div>
                       ` : ``}
-                    <div class="archiveCellTitle leftAlignTableText">
-                        <span>${pgTitle}</span>
-                    </div>
                     ${useNums ? `
-                        <div class="archiveCellNum">
+                        <div class="chapterNum">
                             <span>${pgNum}</span>
                         </div>
                       ` : ``}
-                    <div class="archiveCellDate">
-                        <span> ${pgDate} </span>
+                    <div class="chapterTitle">
+                        <h3>${pgTitle}</h3>
+                    </div>
+                    <div class="chapterDate">
+                        <span>${pgDate}</span>
                     </div>
                 </a>
             </div>
