@@ -190,6 +190,7 @@ header #nav {
 */
 .writePageTitle {
   width: var(--comic-width);
+  margin: auto;
 }
 
 /* style comic page image */
