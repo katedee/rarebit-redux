@@ -1,7 +1,9 @@
 # Rarebit Redux
 ![rarebit-redux-logo-bg](https://github.com/user-attachments/assets/b4ec42b7-b541-49e5-8229-88a8309174ce)
 
-_[preview the site](https://rarebit-redux.netlify.app/), but it's basically just rarebit_
+_[Download the latest release](https://github.com/katedee/rarebit-redux/releases/download/v1.0.0/rarebit-redux-1.0.zip) or [preview the site](https://rarebit-redux.netlify.app/), but it's basically just rarebit_
+
+
 Credit where credit is due: this is basically [Geno7's](https://github.com/geno7) - [Rarebit template](https://github.com/geno7/Rarebit), but with some quality-of-life updates, such as:
 
 - Added a reset css for easier styling moving forward
